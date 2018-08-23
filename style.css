@@ -1,0 +1,373 @@
+    /*Meyer reset css*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*--------------------LES FONTES------------------------------------------------ */
+
+html, body{
+    font-family: 'roboto', 'Saira Semi Condensed', sans-serif;
+    font-size: 18px;
+}
+
+/*------------------------LA GRILLE-------------------------------------------- */
+
+
+.grille{
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr 2fr;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-gap: 0px;
+    background-image: url(./images/architecturenb.jpg);
+    z-index: 98;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+header{
+/* position du header dans la grille -------------------------------*/
+    grid-row: 1/2; 
+    grid-column: 1/all;
+    width: 100%;
+    position: fixed; /* le bandeau ne bouge pas meme quand on scroll */
+    z-index: 99; /* position toujours dessus */
+    display: flex; /* flex pour les enfants direct donc logo et navigation*/
+    flex-direction: row; 
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+}
+.logo{
+    width: 20%;
+    margin-left: 1%;
+}
+.navigation{
+    width: 100%;
+    margin-top: auto auto;
+}
+.nav{
+    display: flex; /* flex pour les enfants direct donc toutes les rubriques */
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: "Saira Semi Condensed" sans-serif; /* Syntaxe de l'ajout de la police"*/
+    font-size: 1rem; /* equivalent à 1 fois la valeur défini dans le body */
+    list-style-type: none;
+}
+a{
+    transition-property: font-weight;
+    transition-duration: 1ms;
+}
+a:hover{ /* définition de la couleur du survol des liens */
+    /* font-weight: 600; valeur du bold */
+    text-decoration: underline;
+}
+a:visited{  /* définition de la couleur des liens visités */
+    color: black;
+    text-transform: capitalize;
+}
+.rub {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+.active{
+    font-weight: 800; /* valeur du bold */
+    text-transform: capitalize;
+}
+
+/* ----------------------ACCUEIL---------------------------------------------------*/
+.carrousel{
+    /* position du CARROUSEL dans la grille  --------------*/
+    grid-row: 2/3;
+    grid-column: 2/3;
+    height: 480px; /* occupe 100% de la largeur du parent donc de BODY */ 
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px grey; /*paramétrage de l'ombre du bloc */
+    background-color: white;
+    opacity: 0.7; /* opacité du bloc */
+    border: 1px solid rgb(133, 131, 131);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textehome{
+    z-index: 3;
+    margin-top: 2rem;
+    margin-left: 50%;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+.lientexte{
+    color: black;
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.rondnav{
+    z-index: 2;
+    background-color: rgba(173, 169, 169, 0.8); /* définition de la couleurd de fond avec 255 correspondant au clair et 1 d'opacité l'opaque*/
+    width: 70%;
+    margin: auto auto 20px auto; /* espace entre le contenu et la bordure*/
+    border-radius: 7px;  /* arrondi de la bordure*/
+}
+.rond{
+    /* Création d'un affichage de type flex pour les ronds et definition de cet affichage*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.rond img{
+    padding: 5px; /*espace entre les ronds */
+}
+
+/* ------------------------------------------------------------------------*/
+
+.textecentre{
+/* position du ROND dans la grille défini dans BODY ---*/
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    color: gray;
+    font-family: "Reboto" sans-serif; /* Syntaxe de l'ajout de la police"*/
+    font-size: 1.6rem;
+    font-weight: lighter;
+}
+
+/* ------------------------------------------------------------------------*/
+footer{
+    grid-row: 4/5;
+    grid-column: 1/all;
+    z-index: 1;
+    height: 70%;
+    width: 100%;
+    background-color: rgb(178, 182, 187);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.fondblanc {
+    background-color: white;
+    z-index: 1000;
+    height: 15px;
+    width: 100%;
+    margin-bottom: 90px; /*obliger de spécifier une dimension car dans html pas un élément physique. sinon il n'apparaitrait pas */
+    position: absolute; /* position par rapport au bloc*/
+}
+.coordonnees{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+.adresse{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    line-height: 1.6rem;  /* interlignage */
+
+    /* on aurait pu mettre ce code mais le pîcto se mettait au dessus du texte
+    background-image: url(images/iconelieu.png);
+    background-position-x: center; 
+    background-repeat: no-repeat;
+    text-align: center; */
+}
+.lien{
+    color: black;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+.telephone{
+    width: 50%;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+}
+
+/* description des éléments qui changent lorsque la taille devient équivalente à un telephone*/
+
+@media screen and (min-width : 320px){ /* au-dessus de 320px de large */
+    .rub active, .rub{
+        width: 100%;
+    }
+
+    .carrousel{
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+    .menuburger{
+    display: none;
+    }
+}
+@media screen and (max-width : 320px){ /* en dessous de 320px de large */
+    .menuburger{
+    display: inline;
+    }
+    .nav{
+        display: none;
+    }
+    .logo{
+        width: 10%;
+    }
+    footer{
+        display: none;
+    }
+    .textecentre{
+        display: none;
+    }
+}
+
+
+/* Sur tous types d'écrans orientés verticalement */
+/*@media all and (orientation: portrait)*/
+
+
+
+
+
+/* PAGE ACTUALITE -------------------------------------------------------------------------*/
+.centreactu{
+    /* position du BLoc central dans la grille  --------------*/
+    grid-row: 2/3;
+    grid-column: 2/3;
+    height: 480px; 
+    width: 100%; /* largeur du bloc */
+    margin: auto auto; /* centrag du bloc horizontalement et verticalement */
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px grey; /* paramétrage de l'ombre du bloc */
+    background-image:   url(./images/sos.jpg), 
+                        url(./images/imageboutonsos.svg); /* liens vers les 2 images en fond de bloc */
+    background-color: white;
+    opacity: 0.9; /* opacité du bloc */    
+    background-position-x:  15%, /* position selon l'axe x des 2 images  */
+                            95%;
+    background-position-y:  30%,
+                            10%;
+    background-repeat:  no-repeat,
+                        no-repeat;
+    background-size: 25%, /* dimension de chacune des 2 images */ 
+                     30%;
+    display: flex; /* paramétrage de la position de paragraphe et flechnav */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.texteactu{
+    z-index: 3;
+    margin-left: 20rem;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    line-height: 3rem;  
+    font-size: 1rem;
+}
+.date{
+    color: #828282;
+    margin-bottom: 2rem;  
+    font-weight: bold;
+}
+.titreactu{
+    font-weight: bold;
+}
+.flechenav{
+    z-index: 2;
+/*    background-color: rgba(0, 0, 0, 0.212);*/ /* définition de la couleurd de fond avec 255 correspondant au clair et 1 d'opacité l'opaque*/    width: 35%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    border-radius: 10px;  /* arrondi de la bordure*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+/* PAGE PRODUITs -------------------------------------------------------------------------*/
+.centreproduit{
+    /* position du bLoc central dans la grille  --------------*/
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin-left: 10rem;
+    margin-top: 2%;
+    height: 480px;
+    width: 100%; /* largeur du bloc */
+    margin: auto auto; /* centrag du bloc horizontalement et verticalement */
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px grey; /* paramétrage de l'ombre du bloc */
+    background-image:   url(./images/Produit-1.png),
+                        url(./images/bidable.svg); /* liens vers les 2 images en fond de bloc */
+    background-position-x:  20%, /* position selon l'axe x des 2 images  */
+                            95%;
+    background-position-y:  30%,
+                            10%;
+    background-repeat:  no-repeat,
+                        no-repeat;
+    background-size:    15%, /* dimension de chacune des 2 images */ 
+                        45%;
+    background-color: white;
+    opacity: 0.9; /* opacité du bloc */    
+    display: flex; /* paramétrage de la position de paragraphe et flechnav */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.texteproduit{
+    z-index: 3;
+    margin-left: 50%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1rem;
+    line-height: 3rem;  
+}
+.titreproduit{
+    font-weight: bold;
+}
